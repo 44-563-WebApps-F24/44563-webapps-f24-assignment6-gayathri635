@@ -17,7 +17,7 @@
     </form>
 
 
-    <p id="lunch_result">Lunch details will be shown here </p>
+    <p id="result">Lunch details will be shown here </p>
     <form>
         <label for="property_name">Enter property:</label>
         <input type="text" id="property_name" value="entree"><br>
@@ -28,7 +28,7 @@
         <input type="button" onclick="updateLunch()" value="Update the lunch">
     </form>
 
-    <p id="updated_lunch_result">Updated lunch details will be shown here</p>
+    <p id="updated_result">Updated lunch details will be shown here</p>
     <script>
         let my_lunch = {};
 
@@ -39,7 +39,7 @@
             my_lunch.side = document.getElementById("side").checked;
             my_lunch.in = document.getElementById("in").checked;
 
-            document.getElementById("lunch_result").innerHTML = `Lunch Order: <br>
+            document.getElementById("result").innerHTML = `Lunch Order: <br>
             Drink: ${my_lunch.drink ? "Yes" : "No"}<br>
             Side: ${my_lunch.side ? "Yes" : "No"}<br>
             Eat in: ${my_lunch.in ? "Yes" : "No"}`;
@@ -50,7 +50,7 @@
 
             my_lunch[property] = value;
 
-            document.getElementById("updated_lunch_result").innerHTML = `Updated lunch Order: <br>` +
+            document.getElementById("updated_result").innerHTML = `Updated lunch Order: <br>` +
                 JSON.stringify(my_lunch, null, 2).replace(/\n/g, '<br>');
         }
     </script>
