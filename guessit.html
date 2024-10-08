@@ -1,24 +1,35 @@
 <!DOCTYPE html>
-<html>
-<title>Guessing the color</title>
+<html lang="en">
 
-<body>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guess the Color - Gayathri Netapalli</title>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.bundle.min.js"></script>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+</head>
 
-    <h2>Guess the color - Gayathri Netapalli</h2>
-    <form>
-        <label for="secret_color">Guess the color</label>
-        <input type="password" id="secret_color" name="secret_color" value="Red"><br>
+<body class="container mt-5">
 
-        <label for="guess_color">Enter a guess</label>
-        <input type="text" id="guess_color" name="guess_color"><br>
+    <h2 class="text-danger">Guess the Color - Gayathri Netapalli</h2>
 
-        <input type="button" onclick="processColor()" value="Check the color">
+    <form class="mb-4">
+        <div class="form-group">
+            <label for="secret_color">Guess the color:</label>
+            <input type="password" id="secret_color" name="secret_color" class="form-control" value="Red">
+        </div>
+        <div class="form-group">
+            <label for="guess_color">Enter a guess:</label>
+            <input type="text" id="guess_color" name="guess_color" class="form-control">
+        </div>
+        <input type="button" onclick="processColor()" value="Check the color" class="btn btn-warning">
     </form>
 
-    <p id="result">Attempts: 0 | Wrong: 0</p>
+    <p id="result" class="alert alert-info">Attempts: 0 | Wrong: 0</p>
 
-    <div>
-        <img id="Trientalis_borealis" src="Trientalis_borealis.jpeg" width="200" height="200" onclick="nextImage()">
+    <div class="text-center mb-4">
+        <img id="Trientalis_borealis" src="Trientalis_borealis.jpeg" width="200" height="200" onclick="nextImage()" class="img-thumbnail">
     </div>
 
     <script>
@@ -35,7 +46,6 @@
                 alert("That was not it");
             } else {
                 alert("That's right!");
-        
             }
             document.getElementById("result").innerHTML = `Attempts: ${attempts} | Wrong: ${wrong}`;
         }
@@ -43,7 +53,7 @@
         let showing = 1;
 
         function nextImage() {
-            console.log("Current showing:", showing); 
+            console.log("Current showing:", showing);
 
             switch (showing) {
                 case 1:
@@ -61,6 +71,7 @@
             }
         }
     </script>
+
 </body>
 
 </html>
