@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Math</title>
+</head>
+ 
+<body>
+
+<h2>Gayathri Netapalli figures out</h2>
+
+<form>
+    <label for="first_value">Enter a number </label>
+    <input type ="number" id="first_value" value="2"> <br>
+
+    <label for="second_value">Enter a number </label>
+    <input type ="number" id="second_value" value="12"> <br>
+
+    <input type="button" onclick="powerSum()" value="Compute">
+</form>
+
+<p id="result">The result will be shown here </p>
+<form>
+    <label><input type="radio" name="operation" value="max" onclick="processRadio()">Max</label><br> 
+    <label><input type="radio" name="operation" value="min" onclick="processRadio()">Min</label><br> 
+    <label><input type="radio" name="operation" value="avg" onclick="processRadio()">Average</label><br> 
+    <label><input type="radio" name="operation" value="geo" onclick="processRadio()">Geometric Mean</label><br> 
+</form>
+<p id="radio_result">Computed result will be shown here</p>
+<script>
+        function powerSum() {
+            const firstValue = parseInt(document.getElementById("first_value").value);
+            const secondValue = parseInt(document.getElementById("second_value").value);
+
+            let sum = 0;
+
+            for (let i = 0; i < firstValue; i++) {
+                sum += Math.pow(secondValue, i); 
+            }
+
+            document.getElementById('result').innerHTML = `Sum of ${firstValue} powers with base ${secondValue} is ${sum}`;
+        }
+        function processRadio(){
+            let firstValue=parseFloat(document.getElementById("first_value").value);
+            let secondValue=parseFloat(document.getElementById("second_value").value);
+            let operation=document.querySelector('input[name="operation"]:checked').value;
+            let result;
+
+            switch (operation) {
+                case "max":
+                    result = Math.max(firstValue, secondValue);                
+                    break;
+                case "min":
+                    result = Math.min(firstValue, secondValue);                    
+                    break;
+                case "avg":
+                    result = (firstValue + secondValue) / 2;                    
+                    break;
+                case "geo":
+                    result = Math.sqrt(firstValue * secondValue);                   
+                    break;
+             }
+             document.getElementById("radio_result").innerHTML = `Computed ${operation} with values ${firstValue} and ${secondValue} with result ${result}`;
+        }
+    </script>
+</body>
+</html> 

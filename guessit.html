@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<title>Guessing the color</title>
+
+<body>
+
+    <h2>Guess the color - Gayathri Netapalli</h2>
+    <form>
+        <label for="secret_color">Guess the color</label>
+        <input type="password" id="secret_color" name="secret_color" value="Red"><br>
+
+        <label for="guess_color">Enter a guess</label>
+        <input type="text" id="guess_color" name="guess_color"><br>
+
+        <input type="button" onclick="processColor()" value="Check the color">
+    </form>
+
+    <p id="result">Attempts: 0 | Wrong: 0</p>
+
+    <div>
+        <img id="Trientalis_borealis" src="Trientalis_borealis.jpeg" width="200" height="200" onclick="nextImage()">
+    </div>
+
+    <script>
+        let attempts = 0;
+        let wrong = 0;
+
+        function processColor() {
+            const secretColor = document.getElementById("secret_color").value;
+            const guessedColor = document.getElementById("guess_color").value;
+
+            attempts++;
+            if (guessedColor.toLowerCase() !== secretColor.toLowerCase()) {
+                wrong++;
+                alert("That was not it");
+            } else {
+                alert("That's right!");
+        
+            }
+            document.getElementById("result").innerHTML = `Attempts: ${attempts} | Wrong: ${wrong}`;
+        }
+
+        let showing = 1;
+
+        function nextImage() {
+            console.log("Current showing:", showing); 
+
+            switch (showing) {
+                case 1:
+                    document.getElementById("Trientalis_borealis").src = "Indoorplants.jpeg";
+                    showing = 2;
+                    break;
+                case 2:
+                    document.getElementById("Trientalis_borealis").src = "Outdoorplants.jpeg";
+                    showing = 3;
+                    break;
+                case 3:
+                    document.getElementById("Trientalis_borealis").src = "Trientalis_borealis.jpeg";
+                    showing = 1;
+                    break;
+            }
+        }
+    </script>
+</body>
+
+</html>
